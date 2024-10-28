@@ -6,6 +6,8 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "google/protobuf": "^4.28",
+        "grpc/grpc": "^1.57",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9"
     },

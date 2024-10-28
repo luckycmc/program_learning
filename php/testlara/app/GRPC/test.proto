@@ -1,0 +1,17 @@
+syntax = "proto2";
+
+package test;
+
+message StreamRequest {
+    string token = 1;
+}
+
+message StreamResponse {
+    uint32 id = 1;
+    string load = 2;
+}
+
+
+service TestRpcServer {
+    rpc Sync(StreamRequest) returns (StreamResponse){}
+}
