@@ -22,7 +22,6 @@ class RpcController extends Controller
             'Height' => 2
         ];
         $err = fwrite($conn,json_encode([
-            'jsonrpc' => '2.0',
             'method' => $method,
             'params' => [$params],
             'id' => 0
