@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use app\Service\RpcxService;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class IndexController extends Controller
 {
@@ -60,5 +61,15 @@ class IndexController extends Controller
             'status' => 1,
             'data' => $result
         ]);
+    }
+
+    public function httpRpcx()
+    {
+        $params = [
+            'A' => 20,
+            'B' => 40
+        ];
+        $result = $this->rpcxService->callHttpRpc($params);
+        dd($result);
     }
 }

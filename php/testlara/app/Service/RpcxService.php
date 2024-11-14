@@ -2,14 +2,32 @@
 
 namespace app\Service;
 
+use GuzzleHttp\Client;
+
 class RpcxService
 {
     protected $url;
+    protected $client;
 
     public function __construct($url="http://192.168.72.130:8003")
     {
+        $this->client = new Client();
         $this->url = $url;
     }
+
+    public function callHttpRpc($params)
+    {
+        $data = [
+            'json' => [
+                'method' => 'Arith.Multiply',
+                'params' => [$params],
+            ]
+        ];
+        $response = $this->client->post($this->url, $data);
+        $body = json_decode($response->getBody()->getContents(), true);
+        return $body;
+    }
+
 
     public function callRpcx($servicePath,$serviceMethod,$method,$params)
     {
