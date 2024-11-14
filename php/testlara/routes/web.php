@@ -9,3 +9,5 @@ Route::get('/', function () {
 Route::controller(\App\Http\Controllers\RpcController::class)->group(function () {
     Route::get('/rpc/test','test');
 });
+
+Route::get('/rpcx',[\App\Http\Controllers\IndexController::class,'rpcx']);
